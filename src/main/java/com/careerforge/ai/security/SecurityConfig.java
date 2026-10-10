@@ -67,8 +67,8 @@ public class SecurityConfig {
                                 SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
 
-                        // Public health-check endpoint
-                        .requestMatchers("/api/health").permitAll()
+                        // Public root and health-check endpoints
+                        .requestMatchers("/", "/error", "/api/health").permitAll()
 
                         // Authentication endpoints
                         .requestMatchers("/api/auth/**").permitAll()
