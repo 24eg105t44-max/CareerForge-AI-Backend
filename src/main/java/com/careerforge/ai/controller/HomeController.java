@@ -9,6 +9,6 @@ public class HomeController {
 
     @GetMapping("/")
     public RedirectView redirectToFrontend() {
-        return new RedirectView("https://24eg105t44-max.github.io/CareerForge-AI-Frontend/");
+        return new RedirectView("https://24eg105t44-max.github.io/CareerForge-AI/");
     }
 }
