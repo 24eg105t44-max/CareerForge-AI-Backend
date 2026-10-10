@@ -1,0 +1,27 @@
+package com.careerforge.ai.controller;
+
+import com.careerforge.ai.dto.UserProfileDto;
+import com.careerforge.ai.service.UserProfileService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/profile")
+public class UserProfileController {
+
+    private final UserProfileService userProfileService;
+
+    public UserProfileController(UserProfileService userProfileService) {
+        this.userProfileService = userProfileService;
+    }
+
+    @GetMapping
+    public ResponseEntity<UserProfileDto> getProfile() {
+        return ResponseEntity.ok(userProfileService.getCurrentUserProfile());
+    }
+
+    @PutMapping
+    public ResponseEntity<UserProfileDto> updateProfile(@RequestBody UserProfileDto dto) {
+        return ResponseEntity.ok(userProfileService.updateProfile(dto));
+    }
+}
